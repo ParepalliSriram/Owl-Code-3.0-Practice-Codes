@@ -1,0 +1,29 @@
+      vector<int> arrr(mat.size(), 0);
+      int c=0;
+      vector<int> vec;
+      for(int i=0;i<mat.size();i++)
+      {
+          c=0;
+          for(int n=0;n<mat[0].size();n++)
+          {
+              if(mat[i][n]==1) c++;
+              else break;
+          }
+          arrr[i]=c;
+          vec.push_back(c);
+      }
+      sort(vec.begin(), vec.end());
+      vector<int> v;
+      for(int i=0;i<vec.size() and v.size()!=k;i++)
+      {
+          for(int n=0;n<arrr.size() and v.size()!=k;n++)
+          {
+              if(arrr[n]==vec[i])
+              {
+                  v.push_back(n);
+                  arrr[n]=-1;
+                  break;
+              }
+          }
+      }
+      return v;
