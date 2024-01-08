@@ -14,7 +14,7 @@ int findTheWinner(int n, int k) {
             m++;
         }
         vec[m]=1;
-        cout<<m<<" ";
+        //cout<<m<<" ";
         i++;
     }
     i=0;
