@@ -1,0 +1,27 @@
+
+// This approach is not a Recursion
+int findTheWinner(int n, int k) {
+    vector<int> vec(n, 0);
+    int i=0, count=0, m=0;
+    while(i<n-1)
+    {
+        count=0;
+        while(1)
+        {
+            if(m>=n) m=0;
+            if(vec[m]==0) count++;
+            if(count==k) break;
+            m++;
+        }
+        vec[m]=1;
+        cout<<m<<" ";
+        i++;
+    }
+    i=0;
+    while(i<vec.size())
+    {
+        if(vec[i]!=1) break;
+        i++;
+    }     
+    return i+1;
+}
