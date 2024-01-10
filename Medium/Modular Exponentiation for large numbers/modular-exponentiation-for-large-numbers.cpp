@@ -3,6 +3,9 @@
 using namespace std;
 
 // } Driver Code Ends
+
+// By Binary Exponentiation 
+
 class Solution
 {
 	public:
