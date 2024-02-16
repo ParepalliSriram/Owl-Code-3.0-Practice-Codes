@@ -1,0 +1,51 @@
+#include<bits/stdc++.h>
+using namespace std;
+void Topo_Sort(char ch, map<char, vector<char>> adj, vector<int> &vis, stack<char> &s)
+{
+    vis[ch-'A']=1;
+    for(auto it: adj[ch])
+    {
+        if(!vis[it-'A'])
+        {
+            Topo_Sort(it, adj, vis, s);
+        }
+    }
+    s.push(ch);
+}
+int main()
+{
+    int n, e;
+    cin >> n >> e;
+    map<char, vector<char>> adj;
+    for(int i=0;i<e;i++)
+    {
+        char u, v;
+        cin >> u >> v;
+        adj[u].push_back(v);
+    }
+    vector<int> vis(n+1, 0);
+    stack<char> s;
+    for(char i='A';i<n+'A';i++)
+    {
+        if(!vis[i-'A']) Topo_Sort(i, adj, vis, s);
+    }
+    while(!s.empty())
+    {
+        cout<<s.top()<<" ";
+        s.pop();
+    }
+}
+
+
+
+/*
+input:-
+
+5 5
+A B
+B C
+C E
+B D
+D E
+
+*/
